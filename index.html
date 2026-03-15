@@ -48,7 +48,7 @@
 
   // Custom marker
   var leafletIcon = L.icon ({
-      iconUrl: 'Marker/marker.png'
+      iconUrl: 'Marker/marker.png',
       iconSize: [38,38],
       iconAnchor: [19,38]
   });
@@ -175,7 +175,7 @@ var buildings = [
     status: "RESTORING",
     restoration: "Restoring",
     coords: [39.9061, -79.4668]
-  },
+  }
 ];
 
 
@@ -185,15 +185,12 @@ buildings.forEach(function(building){
 
   var marker = L.marker(building.coords, {icon: leafletIcon}).addTo(map);
 
-  var popupContent = `
-    <iframe 
-      src="teaser.html?building=${encodeURIComponent(building.name)}
-      &location=${encodeURIComponent(building.location)}
-      &status=${encodeURIComponent(building.status)}
-      &restoration=${encodeURIComponent(building.restoration)}"
-      style="width:300px; aspect-ratio:375/500; border:none;">
-    </iframe>
-  `;
+var popupContent = `
+  <iframe 
+    src="teaser.html?building=${encodeURIComponent(building.name)}&location=${encodeURIComponent(building.location)}&status=${encodeURIComponent(building.status)}&restoration=${encodeURIComponent(building.restoration)}"
+    style="width:300px; aspect-ratio:375/500; border:none;">
+  </iframe>
+`;
 
   marker.bindPopup(popupContent,{
     maxWidth:310,
