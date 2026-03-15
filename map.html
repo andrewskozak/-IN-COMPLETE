@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>[MAP]</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+    <style>
+        html, body { height: 100%; margin: 0; padding: 0; }
+        #map { width: 100%; height: 100%; }
+
+        .teaser-popup .leaflet-popup-content-wrapper {
+            background: transparent;
+            padding: 0;
+            box-shadow: none;
+        }
+
+        .teaser-popup .leaflet-popup-content { margin: 0; }
+        .teaser-popup .leaflet-popup-tip-container { display: none; }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+  // Initialize the map once
+  var map = L.map('map', {
+      minZoom: 2,
+      maxZoom: 18,
+      zoomControl: true
+  }).setView([51.5, -0.09], 5);
+
+  // Tile layer
+  L.tileLayer('https://api.maptiler.com/maps/toner-v2/{z}/{x}/{y}.png?key=qZc9X8NrDe8BuxW9Ogr5', {
+      attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+  }).addTo(map);
+
+  // Constrain map bounds
+  var southWest = L.latLng(-90, -180),
+      northEast = L.latLng(90, 180),
+      bounds = L.latLngBounds(southWest, northEast);
+  map.setMaxBounds(bounds);
+  map.on('drag', function() {
+      map.panInsideBounds(bounds, { animate: false });
+  });
+
+  // Custom marker
+  var leafletIcon = L.icon ({
+      iconUrl: '/Marker/marker.png',
+      iconSize: [38,38],
+      iconAnchor: [19,38]
+  });
+
+/* BUILDING DATA */
+
+var buildings = [
+
+  {
+    name: "Eiffel Tower",
+    location: "Paris, France",
+    status: "OPEN",
+    restoration: "Restoring",
+    coords: [48.8584, 2.2945]
+  },
+
+  {
+    name: "Notre-Dame",
+    location: "Paris, France",
+    status: "RESTORING",
+    restoration: "Restoring",
+    coords: [48.8530, 2.3499]
+  },
+
+    {
+    name: "Parthenon",
+    location: "Athens, Greece",
+    status: "RESTORING",
+    restoration: "Restoring",
+    coords: [37.9715, 23.7267]
+  },
+
+    {
+    name: "Arc de Triomphe",
+    location: "Paris, France",
+    status: "RESTORING",
+    restoration: "open",
+    coords: [48.8738, 2.2950]
+  },
+
+    {
+    name: "Cologne Cathedral",
+    location: "Cologne, Germany",
+    status: "RESTORING",
+    restoration: "Under constant restoration",
+    coords: [50.9413, 6.9583]
+  },
+
+  {
+    name: "Dom Tower",
+    location: "Utrecht, the Netherlands",
+    status: "RESTORING",
+    restoration: "OPEN",
+    coords: [52.0908, 5.1213]
+  },
+
+  {
+    name: "Hagia Sophia",
+    location: "Istanbul, Turkey",
+    status: "RESTORING",
+    restoration: "EXTENSIVE RESTORATION",
+    coords: [41.0086, 28.9802]
+  },
+
+    {
+    name: "HEYDAR ALIYEV CENTER",
+    location: "Baku, Azerbaijan",
+    status: "RESTORING",
+    restoration: "open",
+    coords: [40.3959, 49.8678]
+  },
+
+      {
+    name: "Church of the Assumption of the Blessed Virgin Mary",
+    location: "Krakow, Poland",
+    status: "RESTORING",
+    restoration: "open",
+    coords: [50.06152, 19.93968]
+  },
+
+     {
+    name: "Church of the Assumption of the Blessed Virgin Mary",
+    location: "Krakow, Poland",
+    status: "RESTORING",
+    restoration: "open",
+    coords: [50.06152, 19.93968]
+  },
+
+      {
+    name: "Pantheon",
+    location: "Rome, Italy",
+    status: "RESTORING",
+    restoration: "open",
+    coords: [41.8986, 12.4769]
+  },
+
+       {
+    name: "Leaning Tower of Pisa",
+    location: "Pisa, Italy",
+    status: "RESTORING",
+    restoration: "open",
+    coords: [43.7230, 10.3966]
+  },
+
+       {
+    name: "Sagrada Familia",
+    location: "Barcelona, Spain",
+    status: "RESTORING",
+    restoration: "Under construction since 1882",
+    coords: [41.4036, 2.1744]
+  },
+
+       {
+    name: "Saint Peter's Basilica",
+    location: "Vatican City",
+    status: "RESTORING",
+    restoration: "Extensive restorations",
+    coords: [41.9022, 12.4539]
+  },
+
+       {
+    name: "Fallingwater",
+    location: "Uniontown, Pennsylvania",
+    status: "RESTORING",
+    restoration: "Restoring",
+    coords: [39.9061, -79.4668]
+  },
+];
+
+
+/* CREATE MARKERS */
+
+buildings.forEach(function(building){
+
+  var marker = L.marker(building.coords, {icon: leafletIcon}).addTo(map);
+
+  var popupContent = `
+    <iframe 
+      src="teaser.html?building=${encodeURIComponent(building.name)}
+      &location=${encodeURIComponent(building.location)}
+      &status=${encodeURIComponent(building.status)}
+      &restoration=${encodeURIComponent(building.restoration)}"
+      style="width:300px; aspect-ratio:375/500; border:none;">
+    </iframe>
+  `;
+
+  marker.bindPopup(popupContent,{
+    maxWidth:310,
+    minWidth:300,
+    className:"teaser-popup"
+  });
+
+});
+</script>
+
+</body>
+</html>

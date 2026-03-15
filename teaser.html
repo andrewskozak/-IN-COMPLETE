@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>[TEASER]</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://use.typekit.net/pnv2wal.css">
+  <style>
+    /* scale everything proportionally */
+    .teaser-wrapper {
+      transform: scale(0.7);       /* adjust 0.7 → 0.8 if bigger/smaller */
+      transform-origin: top left;  /* scale from top-left corner */
+      width: 375px;                /* original width of teaser-background */
+      height: 500px;               /* original height */
+    }
+  </style>
+</head>
+<body>
+
+<div class="teaser-wrapper">
+  <main class="teaser-background">
+    <section class="status">
+      <h1 id="status-text">STATUS</h1>
+    </section>
+
+    <section class="placeholder-img"></section>
+
+    <section class="building-name">
+      <h1 id="building-text">>Eiffel Tower</h1>
+    </section>
+
+    <section class="location">
+      <h1 id="location-text">Paris,France</h1>
+    </section>
+
+    <section class="restoration-deets">
+      <h1 id="restoration-text">Restoring</h1>
+    </section>
+  </main>
+</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("building-text").textContent = params.get("building");
+document.getElementById("location-text").textContent = params.get("location");
+document.getElementById("restoration-text").textContent = params.get("restoration");
+document.getElementById("status-text").textContent = "STATUS: " + params.get("status");
+</script>
+</body>
+</html>

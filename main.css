@@ -1,0 +1,356 @@
+h1{
+    color:black;
+    font-size:20px;
+    text-transform: uppercase;
+    font-weight:400;
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-self: stretch;
+font-family:dm-mono;
+font-size: 18px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+letter-spacing: 0.14px;
+}
+
+/* DM Mono Light */
+@font-face {
+  font-family: "dm-mono";
+  src: url("fonts/dm-mono-light.woff2") format("woff2"),
+       url("fonts/dm-mono-light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* DM Mono Light Italic */
+@font-face {
+  font-family: "dm-mono";
+  src: url("fonts/dm-mono-light-italic.woff2") format("woff2"),
+       url("fonts/dm-mono-light-italic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* DM Mono Regular */
+@font-face {
+  font-family: "dm-mono";
+  src: url("fonts/dm-mono-regular.woff2") format("woff2"),
+       url("fonts/dm-mono-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* DM Mono Italic */
+@font-face {
+  font-family: "dm-mono";
+  src: url("fonts/dm-mono-italic.woff2") format("woff2"),
+       url("fonts/dm-mono-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* DM Mono Medium */
+@font-face {
+  font-family: "dm-mono";
+  src: url("fonts/dm-mono-medium.woff2") format("woff2"),
+       url("fonts/dm-mono-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* DM Mono Medium Italic */
+@font-face {
+  font-family: "dm-mono";
+  src: url("fonts/dm-mono-medium-italic.woff2") format("woff2"),
+       url("fonts/dm-mono-medium-italic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* ABOUT ELEMENTS*/
+.background{
+background: rgba(213, 210, 205, 0.60);
+display: flex;
+width: 800px;
+padding: 40px 80px 40px 40px;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+border:1px solid black;
+
+}
+h2 {
+  font-family: dm-mono;
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2.16px;
+  color: black;
+
+  display: inline-block;    
+  border: 1px solid black; 
+  padding: 20px 50px;       
+  line-height: 1;       
+}
+
+.title-row{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    align-self:stretch;
+}
+
+/* SIDEBAR ELEMENTS*/
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: rgba(213, 210, 205, 0.6);
+    width: 150px;
+    min-height:100vh;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    border:1px solid black;
+}
+
+.sidebar h1 {
+    font-family: dm-mono;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14px;
+    color: black;
+
+    text-align:center;
+    border: 1px solid black;
+    padding: 15px 8px;     
+    line-height: 1;       
+}
+
+/* FOOTER ELEMENTS*/
+.footer {
+    display: flex;
+    flex-direction: row;   
+    align-items: left;     
+    justify-content: left;  
+    gap: 15px;
+    padding: 10px;
+    background: rgba(213, 210, 205, 0.6);
+    width: 100%;             
+    position: fixed;          
+    bottom: 0;
+    left: 0;
+
+    font-family: "dm-mono";
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14px;
+    color: black;
+    box-sizing: border-box;
+    text-align:center;
+    border:1px solid black;
+
+}
+
+.footer h1{
+   font-family: dm-mono;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14px;
+    color: black;
+
+    text-align:center;
+    border: 1px solid black;
+    padding: 10px 30px;    
+    line-height: 1;    
+
+}
+
+/* TEASER ELEMENTS*/
+.teaser-background {
+    position:relative;
+    background: rgba(213, 210, 205);
+    display: flex;
+    flex-direction:column;
+    max-width: 375px;
+    padding-bottom:13px;
+    padding-top:13px;
+    justify-content: flex-start;
+    align-items: center;   
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.status {
+    display: flex;
+    position:absolute;
+    justify-content: center; 
+    align-items: center;    
+
+    height: 60px;
+    width:350px;
+    border: 1px solid #000;
+    background: #37FF00; /* change status colour here 
+    (#FF0000 = CLOSED and #FBB416 = RESTORING :)  */
+    box-sizing: border-box;
+} 
+
+.status h1 {
+    font-family: "dm-mono";
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14px;
+    color: black;
+    margin: 0;
+    text-align: center;
+}
+
+.placeholder-img {
+    position:relative;
+    width: 350px;            
+    height: 350px;
+
+    background: #C9C6C5;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+
+.building-name,
+.location,
+.restoration-deets {
+    display: flex;              
+    flex-direction: column;    
+    align-items: center;     
+    justify-content: center;
+    margin-top:5px;
+    
+    border: 1px solid black;  
+    width: 350px;
+    box-sizing: border-box;
+    text-align: center;   
+}
+
+.building-name h1,
+.location h1,
+.restoration-deets h1 {
+    font-family: "dm-mono";
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14px;
+    color: black;
+    text-align: center;
+
+}
+
+.teaser-popup .leaflet-popup-content-wrapper {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.teaser-popup .leaflet-popup-content {
+  margin: 0;
+}
+
+.teaser-popup .leaflet-popup-tip-container {
+  display: none;
+}
+
+.teaser-popup .leaflet-popup-close-button {
+    right: 5px;
+    top: 5px;
+    color: #37FF00 !important; /* force the color */
+    text-shadow: none !important; /* remove default shadow */
+    font-size: 18px; /* optional: adjust size */
+}
+
+.teaser-wrapper{
+    transform: scale
+}
+
+/* TIMELINE ELEMENTS */
+.timeline-title {
+    display: flex;
+    padding: 20px, 0px, 20px, 0px;
+    width:550px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border: 1px solid #000;
+    background: rgba(213, 210, 205);
+}
+
+.timeline-title h1{
+    font-family: "dm-mono";
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14px;
+    color: black;
+    text-align: center;
+}
+
+.timeline-section{
+display: flex;
+width: 550px;
+height: 600px;
+margin-top:13px;
+align-items: center;
+
+border: 1px solid #000;
+background: rgba(213, 210, 205, 0.60);
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: "dm-mono", monospace;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.timeline-item .year {
+    flex: 0 0 120px; 
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14px;
+}
+
+.timeline-item .description {
+    flex: 1;
+    text-align: left;
+}
+
+html {
+  cursor: url("/Cursor Icon/shovel_icon_150752.png") 4 4, auto;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
