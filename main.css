@@ -1,13 +1,13 @@
 h1{
     color:black;
-    font-size:20px;
+    font-size:10px;
     text-transform: uppercase;
     font-weight:400;
     display: flex;
 flex-direction: column;
 justify-content: center;
 align-self: stretch;
-font-family:dm-mono;
+font-family:"dm-mono";
 font-size: 18px;
 font-style: normal;
 font-weight: 300;
@@ -82,7 +82,7 @@ border:1px solid black;
 
 }
 h2 {
-  font-family: dm-mono;
+  font-family: "dm-mono";
   font-size: 22px;
   font-weight: 400;
   text-transform: uppercase;
@@ -132,33 +132,34 @@ h2 {
 
 /* FOOTER ELEMENTS*/
 .footer {
-    display: flex;
-    flex-direction: row;   
-    align-items: left;     
-    justify-content: left;  
-    gap: 15px;
-    padding: 10px;
-    background: rgba(213, 210, 205, 0.6);
-    width: 100%;             
-    position: fixed;          
-    bottom: 0;
+    position: fixed;        /* sit on top of the map */
+    bottom: 0;              /* stick to the bottom */
     left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: left; /* center the links horizontally */
+    align-items: left;     /* vertical alignment */
+    gap: 20px;
 
+    padding: 5px, 5px;
+    padding-bottom: 10px;
+    padding-top:10px;
+    background: rgba(213, 210, 205,);
+    border-top: 1px solid black;
     font-family: "dm-mono";
     font-size: 18px;
     font-weight: 400;
+    
     text-transform: uppercase;
     letter-spacing: 0.14px;
     color: black;
-    box-sizing: border-box;
-    text-align:center;
-    border:1px solid black;
-
+    z-index: 9999;          /* on top of map tiles */
+    pointer-events: auto;    /* allow clicks on the footer links */
 }
 
-.footer h1{
-   font-family: dm-mono;
-    font-size: 18px;
+.footer a{
+   font-family: "dm-mono";
+    font-size: 15px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.14px;
@@ -166,39 +167,43 @@ h2 {
 
     text-align:center;
     border: 1px solid black;
-    padding: 10px 30px;    
+    padding: 8px 30px;    
     line-height: 1;    
 
 }
 
-/* TEASER ELEMENTS*/
+
+/* TEASER ELEMENTS */
+
 .teaser-background {
-    position:relative;
-    background: rgba(213, 210, 205);
+    position: relative;
     display: flex;
-    flex-direction:column;
-    max-width: 375px;
-    padding-bottom:13px;
-    padding-top:13px;
+    flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
-    align-items: center;   
+    gap: 10px; /* space between elements */
+
+    width: 375px; /* change this to adjust the teaser width */
+    background: rgba(213, 210, 205);
     border: 1px solid #000;
     box-sizing: border-box;
+
+    padding: 13px 0;
 }
+
+/* STATUS BAR */
 
 .status {
     display: flex;
-    position:absolute;
-    justify-content: center; 
-    align-items: center;    
+    justify-content: center;
+    align-items: center;
 
+    width: 95%; /* always relative to teaser container */
     height: 60px;
-    width:350px;
+
     border: 1px solid #000;
-    background: #37FF00; /* change status colour here 
-    (#FF0000 = CLOSED and #FBB416 = RESTORING :)  */
-    box-sizing: border-box;
-} 
+    background: #37FF00; /* #FF0000 = CLOSED, #FBB416 = RESTORING */
+}
 
 .status h1 {
     font-family: "dm-mono";
@@ -206,35 +211,47 @@ h2 {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.14px;
-    color: black;
     margin: 0;
     text-align: center;
 }
 
+/* IMAGE */
+
 .placeholder-img {
-    position:relative;
-    width: 350px;            
+    position: relative;
+    width: 95%;
     height: 350px;
 
     background: #C9C6C5;
     border: 1px solid #000;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
+.placeholder-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: 1px solid #000;
+}
+
+/* TEXT SECTIONS */
 
 .building-name,
 .location,
 .restoration-deets {
-    display: flex;              
-    flex-direction: column;    
-    align-items: center;     
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top:5px;
-    
-    border: 1px solid black;  
-    width: 350px;
+    align-items: center;
+
+    width: 95%;
+    margin-top: 5px;
+
+    border: 1px solid #000;
     box-sizing: border-box;
-    text-align: center;   
+    text-align: center;
 }
 
 .building-name h1,
@@ -245,35 +262,36 @@ h2 {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.14px;
-    color: black;
-    text-align: center;
-
+    margin: 6px 0;
 }
 
+/* LEAFLET POPUP OVERRIDES - REMOVE SCROLLING */
+
 .teaser-popup .leaflet-popup-content-wrapper {
-  background: transparent;
-  padding: 0;
-  box-shadow: none;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    overflow: visible !important;
+    max-height: none !important;
 }
 
 .teaser-popup .leaflet-popup-content {
-  margin: 0;
+    margin: 0;
+    overflow: visible !important;
+    max-height: none !important;
+    width: auto !important;
 }
 
 .teaser-popup .leaflet-popup-tip-container {
-  display: none;
+    display: none;
+        overflow: visible !important;
 }
 
 .teaser-popup .leaflet-popup-close-button {
-    right: 5px;
-    top: 5px;
-    color: #37FF00 !important; /* force the color */
-    text-shadow: none !important; /* remove default shadow */
-    font-size: 18px; /* optional: adjust size */
-}
-
-.teaser-wrapper{
-    transform: scale
+    color: #fbb416 !important;
+    text-shadow: none !important;
+    font-size: 18px;
+        overflow: visible !important;
 }
 
 /* TIMELINE ELEMENTS */
@@ -307,7 +325,7 @@ margin-top:13px;
 align-items: center;
 
 border: 1px solid #000;
-background: rgba(213, 210, 205, 0.60);
+background: rgba(213, 210, 205);
 }
 
 .timeline {
@@ -322,7 +340,7 @@ background: rgba(213, 210, 205, 0.60);
 .timeline-item {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 5px;
     align-items: flex-start;
     margin-left:20px;
     margin-right:20px;
@@ -330,18 +348,52 @@ background: rgba(213, 210, 205, 0.60);
 
 .timeline-item .year {
     flex: 0 0 120px; 
-    font-weight: 400;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.14px;
+    letter-spacing: 1px;
+    font-size: 15px;
 }
 
 .timeline-item .description {
     flex: 1;
     text-align: left;
+    font-size:1 5px;
+}
+
+#timeline-panel{
+  position: fixed;
+  top:0;
+  left:0;
+  right: -100%;
+  width:100vw;
+  height:100vh;
+
+  display:none;
+
+  justify-content:center;
+  align-items:center;
+
+  background:rgba(0,0,0,0.2);
+
+  z-index:9998;
+}
+
+#timeline-panel.open{
+    right: 0;
+}
+
+#timeline-panel iframe{
+  width:650px;
+  height:700px;
+  border:none;
+}
+
+.description{
+    font-size: 15px;
 }
 
 html {
-  cursor: url("/Cursor Icon/shovel_icon_150752.png") 4 4, auto;
+  cursor: url("/Cursor Icon/2shovel_icon_150752.png") 2 2, auto;
 }
 
 html, body {
@@ -350,7 +402,45 @@ html, body {
     padding: 0;
 }
 
-#map {
-    width: 100%;
-    height: 100%;
+#about-component {
+    position:fixed;
+    top: 10%;
+    left: 0%;
+    transform:translate(-10%, -10%);
+
+    display: none;
+    width: 66%;
+    height:100%;
+    padding: 10px 10px 10px 109px;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(213, 210, 205);
+    font-family:"dm-mono", monospace;
+    font-size:18px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.about-text{
+    font-family:"dm-mono";
+    font-size:10px;
+}
+
+.title-row{
+        font-family:"dm-mono";
+    font-size:10px;
+}
+
+body, html {
+    font-family: "dm-mono", monospace !important;
+    font-size: 18px;
+    color: black;
+}
+
+body{
+    font-family:"dm-mono",
+}
+
+h1, h2, h3, p{
+    font-family:"dm-mono",
 }
