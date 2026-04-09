@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <!--URL: https://andrewskozak.github.io/-IN-COMPLETE/ -->
+<!-- Old buildings are not ours. 
+      They belong, partly to those who built them, and partly to 
+        the generations of mankind who are to follow us. - John Ruskin -->
+
 <html lang="en">
 <head>
   
@@ -7,10 +11,14 @@
 
     <title>[IN] COMPLETE</title>
 
-<link href="https://unpkg.com/maplibre-gl@4.0.2/dist/maplibre-gl.css" rel="stylesheet" />
-<script src="https://unpkg.com/maplibre-gl@4.0.2/dist/maplibre-gl.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <link rel="stylesheet" href="main.css">
+<script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.10.2/maptiler-sdk.umd.min.js"></script>
+<link href="https://cdn.maptiler.com/maptiler-sdk-js/v3.10.2/maptiler-sdk.css" rel="stylesheet" />
+
+<script src="https://cdn.maptiler.com/leaflet-maptilersdk/v4.1.0/leaflet-maptilersdk.umd.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
                <link rel="stylesheet" href="https://use.typekit.net/pnv2wal.css">
 
     
@@ -31,7 +39,6 @@
 
 <div id="about-modal" class="modal">
   <div class="modal-content">
-    <!-- About page content will be loaded here -->
   </div>
 </div>
 
@@ -71,6 +78,16 @@ THE 860 YEAR OLD NOTRE DAME CATHEDRAL REOPENED TO VISITORS IN DECEMBER 2024.<br>
 THIS SITE SERVES AS A REMINDER (MOSTLY TO MYSELF) THAT THESE ARTIFACTS ARE WORTH PRESERVING, EVEN IF THEY TEMPORARILY DIMINISH THE EXPERIENCE IN THE PRESENT.<br><br>
 
 THESE ARE NOT OBJECTS FOR US TO POSSESS OR CAPTURE FOR OURSELVES, BUT REMINDERS OF HUMAN CAPABILITY, THE DYNAMIC AND EVER LIVING ORGANISM THAT IS OUR CITIES, AND RESPONSIBILITY FOR PRESERVATION OF THE PAST TO BE ENJOYED BY THE FUTURE. <br><br>
+
+DESIGNED BY ANDREW KOZAK <br>
+
+
+<br>
+HELLO@ANDREWSKOZAK.COM
+<br>
+<a href="https://andrewskozak.com/" target="_blank" rel="noopener noreferrer">
+WWW.ANDREWSKOZAK.COM
+</a>
     </p>
   </div>
             </div>
@@ -83,11 +100,11 @@ THESE ARE NOT OBJECTS FOR US TO POSSESS OR CAPTURE FOR OURSELVES, BUT REMINDERS 
 <div id="timeline-panel" style="display:none; 
      position:fixed; top:0; left:0; width:50vw; height:100vh; z-index:999; 
      background: rgba(0,0,0,0);">
+     <button class="close">&times;</button>
   <iframe id="timeline-frame" src="" style="width:80%; height:100%; border:none; 
            position:absolute; top:0%; left:0%;"></iframe>
 </div>
 
-</div>
 
 
 
@@ -98,7 +115,7 @@ THESE ARE NOT OBJECTS FOR US TO POSSESS OR CAPTURE FOR OURSELVES, BUT REMINDERS 
 
 
 
-<script src="new-script.js"></script>
+<script src="js/script.js"></script>
 
 
 
@@ -108,6 +125,8 @@ document.getElementById('home-btn').addEventListener('click', function(e){
   location.reload();
 });
 </script>
+
+<script src="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.umd.js"></script>
 
 
 </body>
