@@ -1,3 +1,6 @@
+
+
+
 const timelinePanel = document.getElementById("timeline-panel");
 
 timelinePanel.addEventListener("click", function(e){
@@ -34,15 +37,17 @@ window.addEventListener('message', function(e) {
 });
 
 marker.bindPopup(teaserHtml, {
-    className: 'teaser-popup',
-    maxHeight: null,   // key to stop Leaflet from enforcing scroll
-    autoPan: false     // prevent Leaflet from trying to resize or move popup
+    className: 'teaser-popup',  // keeps your styling
+    minWidth: 375,              // match your teaser width
+    maxWidth: 375,              // same
+    maxHeight: 1000,             // adjust to fit your scaled teaser
+    autoPan: false              // prevents map from moving popup into view
 });
 
-marker.bindPopup(teaserHtml, {
-    className: 'teaser-popup', // keeps all your existing CSS styling
-    maxHeight: null,            // disables Leaflet popup height restriction
-    maxWidth: 400,              // optional, controls teaser width
-    autoPan: false              // prevents Leaflet from resizing the popup to fit viewport
+const titleBox = document.querySelector('.site-title-box');
+const timelineButton = document.querySelector('#timeline-button'); // replace with your button
+
+timelineButton.addEventListener('click', () => {
+  titleBox.classList.toggle('hidden'); // hides if visible, shows if hidden
 });
 

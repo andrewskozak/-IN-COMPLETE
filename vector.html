@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Vector Tiles in Leaflet JS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.10.2/maptiler-sdk.umd.min.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v3.10.2/maptiler-sdk.css" rel="stylesheet" />
+    <script src="https://cdn.maptiler.com/leaflet-maptilersdk/v4.1.0/leaflet-maptilersdk.umd.min.js"></script>
+    <style>
+      #map {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+  const key = 'Iy5Lbfi3UKEJX8Lj1dy7';
+
+const map = L.map('map').setView([0, 0], 1);
+
+const mtLayer = L.maptiler.maptilerLayer({
+  style: "https://api.maptiler.com/maps/019d5186-81c1-7c25-b048-1c35a1024fc5/style.json?key=Iy5Lbfi3UKEJX8Lj1dy7" + key
+}).addTo(map);
+    </script>
+  </body>
+</html>
