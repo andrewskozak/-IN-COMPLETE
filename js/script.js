@@ -200,13 +200,13 @@ var buildings = [
 
 
 var map = L.map('map', {
-  minZoom: 2,
+  minZoom: 3,
   maxZoom: 18,
   zoomControl: false,
 }).setView([48, 15], 4);
 
 L.maptiler.maptilerLayer({
-  style: "https://api.maptiler.com/maps/019d5693-6c3a-7cfe-8f83-b73d74d7ee07/style.json?key=Ru9Ui7nEqrvBXHONb8nN"
+  style: "https://api.maptiler.com/maps/019d8ad3-8310-7ad1-80aa-f8404070f06a/style.json?key=Ru9Ui7nEqrvBXHONb8nN"
 }).addTo(map);
 
   // Constrain map bounds
@@ -321,7 +321,6 @@ marker.on('popupopen', function(e) {
   function openTimeline(id) {
     
     timelinePanel.style.display = 'block';
-    alert(`timeline-${id}.html`);
     timelineFrame.src = `timeline-${id}.html`;
   }
 
@@ -428,3 +427,30 @@ document.querySelectorAll(".close").forEach((btn) => {
       timelineFrame.src = '';
   });
 });
+
+const img = document.querySelector('.scaffold-img');
+
+img.replaceWith(img.cloneNode(true));
+
+document.querySelectorAll(".about-close").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.getElementById("about-component").style.display = "none";
+  });
+});
+
+const about = document.getElementById("about-component");
+const aboutClose = document.querySelector(".about-close");
+const aboutBtn = document.querySelector("#about-btn");
+
+aboutBtn.addEventListener("click", openAbout);
+aboutClose.addEventListener("click", closeAbout);
+
+function openAbout() {
+  about.style.display = "block";
+  aboutClose.style.display = "flex";
+}
+
+function closeAbout() {
+  about.style.display = "none";
+  aboutClose.style.display = "none";
+}
